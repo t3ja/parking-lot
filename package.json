@@ -1,0 +1,17 @@
+{
+  "name": "parking-lot",
+  "version": "1.0.0",
+  "description": "Simple implementation of a parking lot system",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha tests"
+  },
+  "author": "t3ja",
+  "license": "ISC",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.2.0"
+  }
+}
