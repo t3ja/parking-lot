@@ -57,7 +57,7 @@ ParkingLot.prototype.getStatus = function () {
 ParkingLot.prototype.getCarsFromColor = function (color) {
   var carNumList = [];
   for(var i = 1; i <= Object.keys(this.slotMatrix).length; i++){
-    if(this.slotMatrix[i].color.toUpperCase() === color.toUpperCase()){
+    if(this.slotMatrix[i] && this.slotMatrix[i].color.toUpperCase() === color.toUpperCase()){
       carNumList.push(this.slotMatrix[i].regNo);
     }
   }
@@ -68,7 +68,7 @@ ParkingLot.prototype.getCarsFromColor = function (color) {
 ParkingLot.prototype.getSlotFromCar = function (carRegNo) {
   var i, slotFound = false;
   for(i = 1; i <= Object.keys(this.slotMatrix).length; i++){
-    if(this.slotMatrix[i].regNo === carRegNo){
+    if(this.slotMatrix[i] && this.slotMatrix[i].regNo === carRegNo){
       slotFound = true;
       break;
     }
@@ -80,7 +80,7 @@ ParkingLot.prototype.getSlotFromCar = function (carRegNo) {
 ParkingLot.prototype.getSlotsFromColor = function (color) {
   var carSlotList = [];
   for(var i = 1; i <= Object.keys(this.slotMatrix).length; i++){
-    if(this.slotMatrix[i].color.toUpperCase() === color.toUpperCase()){
+    if(this.slotMatrix[i] && this.slotMatrix[i].color.toUpperCase() === color.toUpperCase()){
       carSlotList.push(i);
     }
   }
