@@ -11,4 +11,4 @@ To run the code:
 * Run the program through CLI
 `node index.js`
 * Run the program through Input File
-`npm index.js PATH/TO/FILE/file_input.txt`
+`node index.js PATH/TO/FILE/file_input.txt`
