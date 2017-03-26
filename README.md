@@ -1,6 +1,14 @@
 # parking-lot
 Simple TDD based implementation of ParkingLot functionality
 
-To install: `npm install`
+NodeJS version used: `v7.7.4`
 
-To run tests: `npm test`
+To run the code:
+* Install dependencies
+`npm install`
+* Run Unit Tests
+`npm test`
+* Run the program through CLI
+`node index.js`
+* Run the program through Input File
+`npm index.js PATH/TO/FILE/file_input.txt`

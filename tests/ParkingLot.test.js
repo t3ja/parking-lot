@@ -4,39 +4,49 @@ const expect = require('chai').expect;
 
 
 const Car = require('../src/Car'),
-Slot = require('../src/Slot'),
 ParkingLot = require('../src/ParkingLot');
 
-var pLot, car1, car2, car3, car4, car5, car6;
+var pLot, regNos, colors;
 describe('Parking Lot testing', function () {
   before(function() {
-    pLot = new ParkingLot(5);
-    car1 = new Car('KA-01-1234', 'BLACK');
-    car2 = new Car('KA-02-1234', 'WHITE');
-    car3 = new Car('KA-03-1234', 'GREY');
-    car4 = new Car('KA-04-1234', 'BLUE');
-    car5 = new Car('KA-05-1234', 'WHITE');
-    car6 = new Car('KA-06-1234', 'BLUE');
+    pLot = new ParkingLot();
+    pLot.create(5);
+    regNos = [
+      'KA-01-1234',
+      'KA-02-1234',
+      'KA-03-1234',
+      'KA-04-1234',
+      'KA-05-1234',
+      'KA-06-1234'
+    ];
+    colors = [
+      'BLACK',
+      'WHITE',
+      'GREY',
+      'BLUE',
+      'WHITE',
+      'BLUE'
+    ];
   });
 
   describe('Create New Parking Lot with predefined slots', function () {
-    it('Should create a new ParkingLot instance with 5 slots', function () {
-      var resp = pLot.totalSlots;
-      expect(resp).to.equal(5);
+    it('Should create a new ParkingLot instance with 5 slots and return the message', function () {
+      var resp = pLot.create(5);
+      expect(resp).to.equal('Created a parking lot with 5 slots');
     });
   });
 
   describe('Assign slot to car1', function () {
     it('Should assign first slot to the input car', function () {
-      var resp = pLot.carEntry(car1);
-      expect(resp).to.equal('Allocated slot number 1');
+      var resp = pLot.carEntry(regNos[0], colors[0]);
+      expect(resp).to.equal('Allocated slot number: 1');
     });
   });
 
   describe('Assign slot to car2', function () {
     it('Should assign second slot to the input car', function () {
-      var resp = pLot.carEntry(car2);
-      expect(resp).to.equal('Allocated slot number 2');
+      var resp = pLot.carEntry(regNos[1], colors[1]);
+      expect(resp).to.equal('Allocated slot number: 2');
     });
   });
 
@@ -49,17 +59,17 @@ describe('Parking Lot testing', function () {
 
   describe('Assign slot to car3', function () {
     it('Should assign first slot to the input car', function () {
-      var resp = pLot.carEntry(car3);
-      expect(resp).to.equal('Allocated slot number 1');
+      var resp = pLot.carEntry(regNos[2], colors[2]);
+      expect(resp).to.equal('Allocated slot number: 1');
     });
   });
 
   describe('Overload ParkingLot', function () {
     it('Should return error message since the parking lot is already full', function () {
-      pLot.carEntry(car4);
-      pLot.carEntry(car5);
-      pLot.carEntry(car6);
-      var resp = pLot.carEntry(car1);
+      pLot.carEntry(regNos[3], colors[3]);
+      pLot.carEntry(regNos[4], colors[4]);
+      pLot.carEntry(regNos[5], colors[5]);
+      var resp = pLot.carEntry(regNos[0], colors[0]);
       expect(resp).to.equal('Sorry, parking lot is full');
     });
   });
